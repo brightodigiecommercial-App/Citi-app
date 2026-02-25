@@ -26,10 +26,16 @@ const SuccessIcon = ({ size = 100, color = '#00C851' }) => {
         }
       ]}
     >
-      <View style={styles.checkmark}>
-        <View style={[styles.checkLeft, { height: size * 0.25 }]} />
-        <View style={[styles.checkRight, { height: size * 0.45 }]} />
-      </View>
+   <View style={[styles.checkmark]}>
+  <View style={[
+    styles.checkLeft, 
+    { height: size * 0.25, transform: [{ rotate: '45deg' }] }
+  ]} />
+  <View style={[
+    styles.checkRight, 
+    { height: size * 0.45, transform: [{ rotate: '-45deg' }] }
+  ]} />
+</View>
     </Animated.View>
   );
 };
@@ -51,17 +57,17 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   checkLeft: {
-    width: 4,
-    backgroundColor: '#FFFFFF',
-    transform: [{ rotate: '45deg' }],
-    marginRight: -2,
-    borderRadius: 2,
-  },
-  checkRight: {
-    width: 4,
-    backgroundColor: '#FFFFFF',
-    transform: [{ rotate: '-45deg' }],
-    marginLeft: -2,
-    borderRadius: 2,
-  },
+  width: 4,
+  backgroundColor: '#FFFFFF',
+  marginRight: -2,
+  borderRadius: 2,
+  // Remove transform from here
+},
+checkRight: {
+  width: 4,
+  backgroundColor: '#FFFFFF',
+  marginLeft: -2,
+  borderRadius: 2,
+  // Remove transform from here
+},
 });
